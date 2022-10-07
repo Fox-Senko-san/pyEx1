@@ -1,4 +1,4 @@
-class IncompleteData(Exception):
+class IncompleteDataError(Exception):
     pass
 
 while True:
@@ -6,7 +6,7 @@ while True:
         line : str = input("Введите данные (фамилия, имя, отчество, год рождения): ")
         raw_data = line.split()
         
-        if len(raw_data) != 4: raise IncompleteData
+        if len(raw_data) != 4: raise IncompleteDataError
 
         with open("file.txt", "a", encoding="UTF-8") as f:
             f.write(f"{raw_data[0]} {raw_data[1]} {raw_data[2]} {raw_data[3]}\n")
@@ -14,7 +14,7 @@ while True:
 
     except UnicodeError: print("Ошибка кодировки!")
     except FileNotFoundError: print("Файл для записи не найден!")
-    except IncompleteData: print("Введены не все необходимые данные")
+    except IncompleteDataError: print("Введены не все необходимые данные")
     except KeyboardInterrupt:
         print("\nВвод завершен!")
         break
