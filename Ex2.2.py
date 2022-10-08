@@ -6,7 +6,7 @@ class EmptyFileError(Exception):
 
 try:
     with open("file.txt", "r", encoding="UTF-8") as f:
-        data = [line.strip().split() for line in f]
+        data : list = [line.strip().split() for line in f]
     if not data: raise EmptyFileError
 
     table = PrettyTable(["Имя", "Фамилия", "Отчество", "Дата рождения"])
