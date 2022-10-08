@@ -4,7 +4,7 @@ class IncompleteDataError(Exception):
 while True:
     try:
         line : str = input("Введите данные (фамилия, имя, отчество, год рождения): ")
-        raw_data = line.split()
+        raw_data : list = line.split()
         
         if len(raw_data) != 4: raise IncompleteDataError
 
